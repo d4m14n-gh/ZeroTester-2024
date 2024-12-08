@@ -1,0 +1,21 @@
+<h3>
+    {{question.content}}
+</h3>
+<ul class="no-bullets">
+    <li 
+        *ngFor="let answer of question.answers; let ai = index" 
+        (click)="tester.setAnswer(qi, ai)"
+        [ngClass]="tester.getAnswerClass(qi, ai)"
+    > 
+        <span style="user-select: none;">
+            {{getLetter(ai)}}) 
+        </span>
+        <span>
+            {{answer}} 
+        </span>
+        <span *ngIf="tester.getAnswer(qi) != undefined && (answer==question.answers[tester.getAnswer(qi)!])" style="position: absolute;" >
+            📌
+        </span>
+    </li>
+</ul>
+

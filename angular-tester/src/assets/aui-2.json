@@ -1,0 +1,308 @@
+{
+  "questions": [
+    {
+      "content": "System wbudowany to system składający się z odpowiednio dobranych komponentów sprzętowych i programowych.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Podstawowe bloki wchodzące w skład nawigacji inercyjnej to: (1) blok pomiarowy - IMU. (2) blok obliczeniovuy - mikroprocesor.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Układy FPGA są programowane na etapie produkcji i nie mogą być przeprogramowywane.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "W telefonii komórkowej GSM transmisja dupleksowa realizowana jest metodą podziału częstotliwości.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Mikroprocesor w architekturze ARM jest procesorem typu RISC.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Technologia Zigbee służy do wymiany danych o dużych rozmiarach z dużą prędkością.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "W pojemnościowych ekranach dotykowych wykorzystywane jest zmienne pole elektryczne w celu wykrycia miejsca jego dotknięcia.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Pojemnościowe ekrany dotykowe mogą być aktywowane przez dowolny przedmiot.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "W rezystancyjnych ekranach dotykowch dotknięcie ekranu powoduje zwarcie dwóch warstw przewodzących w miejscu dotknięcia.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Procesory sygnałowe (DSP) posiadają jedną pamięć współdzieloną dla programu oraz danych.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Łącze radiowe Bluetooth wykorzystuje technologie widma rozproszonego metodą przeskoków częstotliwości.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Typowy wielofunkcyjny komputer osobisty jest systemem wbudowanym.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Każdy system wbudowany posiada dedykowany system operacyjny, najlepiej czasu rzeczywistego.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Nagłówek w ramce Bluetooth nadawany jest trzykrotnie w celu eliminacji błędów podczas jego transmisji.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "GPRS, EDGE, HSPDA. to skróty technologii transmisji danych wykorzystywanych w telefonii komórkowej.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Schemat przetwarzania programu realizowanego przez sterownik logiczny (PUC) jest oparty o pętle typu FOR i WHILE.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Sieci oparte o technologię Zigbee mogą mieć tylko topologię ewiazdy.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "CAN jest to szeregowy, asynchroniczny system komunikacji.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Podstawowe sensory inercyjne w bloku pomiarowym (l MU) to akcelerometr i żyroskop.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Sieć Zigbee wymaga co najmniej jednego urządzenia o pełnej funkcjonalności, jako koordynatora sieci.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Dla potrzeb przemysłu motoryzacyjnego wyróżnia się 4 klasy magistrali CAN.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Głównym zadaniami realizowanym przez sterownik logiczny są: (1) monitorowanie wejść cyfrowych i analogowych, (2) podejmowanie decyzji za pomocą algorytmu działania, (3) sterowanie wyjściami cyfrowymi i analogowymi.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Rezystancyjne ekrany dotykowe mogą być aktywowane tylko przez palec, lub przedmioty przewodzące.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Mikroprocesor ARM nie posiada mechanizmu obsługi wyjątków.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Konfiguracja (lista połączeń) układów FPGA może być zapisywana w pamięci ulotnej i nieulotnej.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Układy ASIC, to układy zaprojektowane do realizacji ściśle określonego zadania.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Logika drabinkowa to jeden z języków używanych do programowania sterowników logicznych (PLC).",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "W sieci Zigbee występują dwa typy urządzeń: (1) o pełnej funkcjonalności, (2) o zredukowanej funkcjonalności.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Za pomocą technologii Bluetooth tworzone są sieci typu MASTER/SLAVE.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "W topologii sieci Bluetooth podstawową jednostką jest pikosieć składającą się z jednego urządzenia typu MASTER oraz maksymalnie 255 aktywnych urządzeń typu SLAVE.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Rdzeń mikroprocesora ARM może wykonywać dwa podzbiory rozkazów: (1) ARM - rozkazy 32-biowe, (2) THUMB rozkazy 16 bitowe.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "CAN nie posiada mechanizmów kontroli konfliktów w czasie wymiany danych.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "TETRA to standard mobilnych sieci trankimgowych.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Procesory sygnałowe (DSP) wykonują rozkazy potokowo.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Cechą charakterystyczną procesorów sygnałowych (DSP) jest równoległe mnożenie z akumulacją wykonywane w jednym cyklu rozkazowym.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Wymiana danych pomiędzy stacjami sieci CAN może odbywać się poprzez: (I) odwołanie do określone stacji, (2) podanie określonej wiadomości.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Dokładność wyznaczania pozycji oraz prędkości obiektu wyznaczanej za pomocą sensorów inercyjnych (IMU) nie zmienia się wraz z upływem czasu.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Cechą charakterystyczną procesorów sygnałowych (DSP) jest równoległe mnożenie z akumulacją wykonywane w jednym cyklu rozkazowym.",
+      "answers": [
+        "Prawda",
+        "Fałsz"
+      ],
+      "correct_answer": 0
+    }
+  ]
+}

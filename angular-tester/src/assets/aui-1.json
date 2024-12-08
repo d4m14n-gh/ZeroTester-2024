@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "content": "Systemy PSoC od systemów SoC różnią się tym, że...",
+      "answers": [
+        "systemy PSoc w odróżnieniu od systemów SoC są urządzeniami programowalnymi, a systemy SoC nie muszą spełniać tego warunku",
+        "systemy PSoC w odróżnieniu od systemów SoC są bardziej energooszczędne",
+        "systemy PSoC w odróżnieniu od systemów SoC zawsze wyposażone są w bezprzewodowy interfejs do komunikacji z nimi",
+        "systemy PSoC w odróżnieniu od systemów SoC posiadają bardziej specjalizowane układy peryferyjne"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Jakie instrukcje są dopuszczalne w schemacie przetwarzania programu programowalnego sterownika logicznego PLC?",
+      "answers": [
+        "pętle typu for, while, do while",
+        "instrukcje warunkowe typu if, operacje logiczne typu and, or",
+        "wszystkie instrukcje znane z języka C",
+        "skoki do dowolnego miejsca w programie"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Które z poniższych stwierdzeń jest prawdziwe w przypadku programowalnego sterownika logicznego PLC?",
+      "answers": [
+        "Stany wejść/wyjść sterownika PLC mogą być sprawdzane/ustawiane w dowolnym etapie przetwarzania programu",
+        "sterowniki PLC posiadają tylko wejścia cyfrowe",
+        "najczęściej spotykanym językiem programowania sterowników PLC jest język C",
+        "program wykonuje się zawsze od początku do końca, w nieskończonej pętli"
+      ],
+      "correct_answer": 3
+    },
+    {
+      "content": "W systemie Bluetooth pojedyncza pikosieć może składać się z...",
+      "answers": [
+        "1 węzła master i dowolnej liczby aktywnych węzłów typu slave",
+        "1 węzła typu master i 7 aktywnych węzłów typu slave",
+        "1 węzła typu master i 255 aktywnych węzłów typu slave",
+        "7 węzłów typu master i 255 aktywnych węzłów typu slave"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Które z poniższych stwierdzeń jest prawdziwe dla technologii Bluetooth?",
+      "answers": [
+        "układ typu master kontroluje zegar i przydziela szczeliny czasowe w czasie wymiany danych z układami typu slave",
+        "w stosie sieciowym Bluetooth zdefiniowane są dwie najniższe warstwy (fizyczna i łącza danych), a pozostałe są puste",
+        "układy typu slave mogą komunikować się między sobą, ale tylko w szczególnych przypadkach",
+        "prędkość transmisji danych jest zawsze stała i zależna od możliwości układu slave, z którym aktualnie trwa wymiana danych"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "W jaki sposób sprawdza się poprawność przesłania nagłówka w ramce wiadomości Bluetooth?",
+      "answers": [
+        "poprzez trzykrotne powtórzenie tego samego bitu („wygrywa większość”)",
+        "żaden, gdyż nie ma takiej potrzeby",
+        "poprzez bity kontrolne w nagłówku o ściśle określonej wartości 0/1",
+        "na końcu nagłówka znajduje się suma kontrolna"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Które z poniższych stwierdzeń jest prawdziwe dla technologii Zigbee?",
+      "answers": [
+        "transmisja danych odbywa się w sposób synchroniczny - gwarancja stałej prędkości przesyłania danych",
+        "transmisja danych odbywa się w sposób asynchroniczny (nieregularny) z niedużymi prędkościami (do 250 kb/s)",
+        "w sieci Zigbee urządzenie końcowe o ukierunkowanej funkcjonalności może pracować tylko w topologii peer to peer",
+        "typowym zastosowaniem technologii Zigbee są transmisja obrazu i dźwięku na nieduże odległości w czasie rzeczywistym"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "W sieci Zigbee urządzenie o pełnej funkcjonalności (FFD) może pełnić rolę...",
+      "answers": [
+        "tylko koordynatora sieci",
+        "tylko routera",
+        "dowolną (koordynatora sieci, routera, urządzenia końcowego)",
+        "tylko urządzenia końcowego"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "content": "Jaka jest możliwa topologia sieci Zigbee?",
+      "answers": [
+        "tylko gwiazda",
+        "tylko peer to peer",
+        "tylko sieci",
+        "nie ma ściśle określonej topologii dla sieci Zigbee"
+      ],
+      "correct_answer": 3
+    },
+    {
+      "content": "Jaka operacja wykonywana na danych z IMU (Inertial Measurement Unit) w celu uzyskania informacji o zmianie położenia i orientacji obiektu jest najbardziej charakterystyczna?",
+      "answers": [
+        "całkowanie",
+        "różniczkowanie",
+        "dodawanie",
+        "dzielenie"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Który z podanych charakterystyk danych sensorów peryferyjnych (akcelerometr, żyroskop) jest błędem poprawności wskazań?",
+      "answers": [
+        "Błąd niedokładności kalibracji",
+        "Błąd systematyczny (bias)",
+        "Błąd w kolejności wykonywania zadań",
+        "Błąd współczynnika skali"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Które elementy są kluczowe dla nawigacji mobilnej GPS ze względu na dokładność lokalizacji?",
+      "answers": [
+        "procesor i system operacyjny",
+        "system operacyjny i mapy",
+        "odbiornik GPS i procesor",
+        "odbiornik GPS i mapy"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "content": "Który z wymienionych ekranów dotykowych nie może być obsługiwany dowolnym przedmiotem?",
+      "answers": [
+        "rezystancyjny",
+        "pojemnościowy",
+        "Infrared",
+        "ARP"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Który z wymienionych paneli dotykowych posiada obsługę więcej niż dwoma palcami jednocześnie (multitouch)?",
+      "answers": [
+        "Pojemnościowy NFI",
+        "Infrared",
+        "APR",
+        "Rezystancyjny"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Które z poniższych zdań jest prawdziwe w przypadku mikrokontrolerów z rdzeniem ARM?",
+      "answers": [
+        "Prawie każda instrukcja może być wykonywana warunkowo",
+        "Posiadają sprzętowy ... w celu przyspieszenia wykonywania programów oraz szybszej obsługi przerwań",
+        "Posiadają 31 rejestrów ogólnego przeznaczenia dostępnych dla programisty",
+        "W trybie użytkownika program ma dostęp do wszystkich zasobów i instrukcji"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Tryb THUMB w mikrokontrolerach z rdzeniem ARM służy do:",
+      "answers": [
+        "obsługi wyjątków",
+        "obsługi przerwań",
+        "wykonywania 16 bitowych instrukcji",
+        "wywoływania funkcji systemowych"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "content": "Gdzie zapisywany jest adres powrotu z obsługi wyjątku w mikroprocesorach z rdzeniem ARM?",
+      "answers": [
+        "na stosie",
+        "w rejestrze CPSR",
+        "w rejestrze SPSR",
+        "w rejestrze R14"
+      ],
+      "correct_answer": 3
+    },
+    {
+      "content": "Która z wymienionych technologii transmisji danych wykorzystywanych w telefonii komórkowej jest najwolniejsza?",
+      "answers": [
+        "CSD",
+        "GPRS",
+        "HSPA",
+        "UTMS"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Następca standardu UMTS (Universal Mobile Telecommunication System) jest:",
+      "answers": [
+        "NMT",
+        "LTE/4G",
+        "GSM",
+        "AMPS"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Który z wymienionych mobilnych systemów operacyjnych powstał jako pierwszy?",
+      "answers": [
+        "Symbian",
+        "Android",
+        "iOS",
+        "Windows Phone"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "System SCADA to:",
+      "answers": [
+        "system nadzorujący przebieg procesu technologicznego lub produkcyjnego (Supervisory Control And Data Acquisition)",
+        "system czasu rzeczywistego do zadań krytycznych",
+        "system pozwalający na bezprzewodową transmisję danych pomiarowych w sieciach sensorowych",
+        "system operacyjny dla mikrokontrolerów z rdzeniem ARM"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Które z poniższych zdań jest prawdziwe w przypadku układów FPGA (Field Programmable Gate Array)?",
+      "answers": [
+        "Mogą być wielokrotnie przeprogramowywane po tym, jak zostały wytworzone",
+        "Użytkownik sam projektuje wszystkie, lub wybrane jednostki logiczne, ich rozmieszczenie oraz połączenia między nimi",
+        "Są szybsze, pobierają mniej mocy od odpowiadających im układów ASIC",
+        "Mają architekturę zbliżoną do architektury 32-bitowych mikrokontrolerów z układem ARM"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Który język programowania należy wybrać do konfiguracji układu FPGA?",
+      "answers": [
+        "Dedykowany assembler",
+        "Język opisu sprzętu VHDL",
+        "z dedykowanymi bibliotekami",
+        "dedykowany BASCOM"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Co jest najczęściej wykorzystywane do konfiguracji układów FPGA?",
+      "answers": [
+        "EEPROM",
+        "SRAM",
+        "ROM",
+        "Przepalanie (fuse)"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Program w czasie wykonywania to",
+      "answers": [
+        "wątek",
+        "sekwencja",
+        "proces",
+        "kod"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "content": "W diagramie stanów procesu, która z wymienionych poniżej ścieżek przejścia od stanu nowy do stanu zakończony może wystąpić w czasie wykonywania programu?",
+      "answers": [
+        "nowy -> oczekujący -> wykonywany -> gotowy -> zakończony",
+        "nowy -> gotowy -> wykonywany -> gotowy -> wykonywany -> zakończony",
+        "nowy -> gotowy -> zakończony",
+        "nowy -> wykonywany -> zakończony"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "content": "Za pomocą magistrali komunikacyjnej CAN dane przesyłane są:",
+      "answers": [
+        "szeregowo asynchronicznie",
+        "szeregowo synchronicznie",
+        "szeregowo, w dwóch kierunkach jednocześnie",
+        "równolegle"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Topologia sieci CAN to",
+      "answers": [
+        "magistrala",
+        "siatka",
+        "peer to peer",
+        "gwiazda"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "Jaki mechanizm zaimplementowany do rozstrzygania konfliktów w czasie nadawania przez więcej niż jedną stację w sieci CAN?",
+      "answers": [
+        "w ramce wiadomości jest zawarte pole arbitrażu zawierające identyfikator wiadomości/stacji (im niższy id tym wyższy priorytet)",
+        "Nie ma takiej potrzeby, gdyż w danej sieci jest zawsze jeden układ typu master, który decyduje kiedy i z jakim układem typu slave stacje wymieniają dane",
+        "w sieci znajduje się układ tzw. arbitra, który decyduje która stacja w danej chwili może nadawać",
+        "Jeśli kilka stacji nadaje w tym samym czasie, to na podstawie identyfikatora wiadomości/stacji stacja docelowa identyfikuje która wiadomość jest przeznaczona dla niej"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "content": "W systemie plików FAT (chyba limit) klastrów określony jest przez:",
+      "answers": [
+        "liczbę bajtów przeznaczonych na klaster w tablicy alokacji",
+        "rozmiar sektora",
+        "rozmiar partycji",
+        "liczbę sektorów przypadających na jeden klaster"
+      ],
+      "correct_answer": 0
+    }
+  ]
+}

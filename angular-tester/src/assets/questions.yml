@@ -1,0 +1,40 @@
+qeusetions:
+
+  - content: Systemy PSoC od systemów SoC różnią się tym, że...
+    answers:
+      - systemy PSoC w odróżnieniu od systemów SoC są bardziej energooszczędne
+      - systemy PSoC w odróżnieniu od systemów SoC zawsze wyposażone są w bezprzewodowy interfejs do komunikacji z nimi
+      - systemy PSoC w odróżnieniu od systemów SoC posiadają bardziej specjalizowane układy peryferyjne
+    correct_answer: 0
+
+  - content: Jakie instrukcje są dopuszczalne w schemacie przetwarzania programu programowalnego sterownika logicznego PLC?
+    answers:
+      - pętle typu for, while, do while
+      - instrukcje warunkowe typu if, operacje logiczne typu and, or
+      - wszystkie instrukcje znane z języka C
+      - skoki do dowolnego miejsca w programie
+    correct_answer: 0
+
+  - content: Które z poniższych stwierdzeń jest prawdziwe w przypadku programowalnego sterownika logicznego PLC?
+    answers:
+      - Stany wejść/wyjść sterownika PLC mogą być sprawdzane/ustawiane w dowolnym etapie przetwarzania programu
+      - sterowniki PLC posiadają tylko wejścia cyfrowe
+      - najczęściej spotykanym językiem programowania sterowników PLC jest język C
+      - program wykonuje się zawsze od początku do końca, w nieskończonej pętli
+    correct_answer: 0
+
+  - content: W systemie Bluetooth pojedyncza pikosieć może składać się z...
+    answers:
+      - 1 węzła master i dowolnej liczby aktywnych węzłów typu slave
+      - 1 węzła typu master i 7 aktywnych węzłów typu slave
+      - 1 węzła typu master i 255 aktywnych węzłów typu slave
+      - 7 węzłów typu master i 255 aktywnych węzłów typu slave
+    correct_answer: 1
+
+  - content: Które z poniższych stwierdzeń jest prawdziwe dla technologii Bluetooth?
+    answers:
+      - układ typu master kontroluje zegar i przydziela szczeliny czasowe w czasie wymiany danych z układami typu slave
+      - w stosie sieciowym Bluetooth zdefiniowane są dwie najniższe warstwy (fizyczna i łącza danych), a pozostałe są puste
+      - układy typu slave mogą komunikować się między sobą, ale tylko w szczególnych przypadkach
+      - prędkość transmisji danych jest zawsze stała i zależna od możliwości układu slave, z którym aktualnie trwa wymiana danych
+    correct_answer: 2

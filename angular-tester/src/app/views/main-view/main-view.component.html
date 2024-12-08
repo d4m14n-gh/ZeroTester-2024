@@ -1,0 +1,41 @@
+
+<section>
+    <h3>All tests:</h3>
+    <hr>
+    <ol>
+        <li 
+            *ngFor="let test of tests"
+            [routerLink]="'/tests/'+test"
+        >
+            {{test}}
+        </li>
+    </ol>
+</section>
+
+
+<!-- <fieldset>
+    <legend>Tytuł grupy</legend>
+    <label for="name">Imię:</label>
+    <input type="text" id="name" name="name">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+</fieldset>
+
+
+<section>
+    <details>
+        <summary>Tytuł karty</summary>
+        <p>Treść karty...</p>
+    </details>
+</section> -->
+
+<!-- <section>
+    <div *ngFor="let question of tester.questions; let qi = index">
+        <app-question-view [qi]="qi" [question]="question"></app-question-view>
+        <hr>
+    </div>
+    <input type="button" value="submit" (click)="tester.submitAnswers()">
+    <span *ngIf="tester.submited">
+        {{tester.result}}/{{tester.getQuestionCount()}}
+    </span>
+</section> -->
