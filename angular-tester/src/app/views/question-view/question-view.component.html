@@ -3,17 +3,17 @@
 </h3>
 <ul class="no-bullets">
     <li 
-        *ngFor="let answer of question.answers; let ai = index" 
-        (click)="tester.setAnswer(qi, ai)"
-        [ngClass]="tester.getAnswerClass(qi, ai)"
+        *ngFor="let answerIndex of tester.order; let answerNumer = index;" 
+        (click)="tester.setUserAnswer(qi, answerIndex)"
+        [ngClass]="tester.getAnswerClass(qi, answerIndex)"
     > 
-        <span style="user-select: none;">
-            {{getLetter(ai)}}) 
+        <span>
+            {{getLetter(answerNumer)}}) 
         </span>
         <span>
-            {{answer}} 
+            {{getAnswer(answerIndex)}} 
         </span>
-        <span *ngIf="tester.getAnswer(qi) != undefined && (answer==question.answers[tester.getAnswer(qi)!])" style="position: absolute;" >
+        <span *ngIf="tester.isAnswerSetted(qi, answerIndex)" style="position: absolute; user-select: none;" >
             📌
         </span>
     </li>

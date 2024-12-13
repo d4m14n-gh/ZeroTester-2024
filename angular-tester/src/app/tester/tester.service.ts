@@ -12,98 +12,114 @@ enum TesterMode{
   providedIn: 'root'
 })
 export class TesterService{
-  submited: boolean = false;
-  questions: Question[] = [];
-  userAnswers: (number | undefined)[] = [];
+  private submited: boolean = false;
+  private questions: Question[] = [];
+  private userAnswers: number[][] = [];
   result: number = 0;
   currentTest: string = "";
-  mode: TesterMode = TesterMode.Learning;
   currentQestion = 0;
   answeredQestions = 0;
+  order: number[] = [];
+  private randomOrder? : boolean = true;
   
   constructor(private http: HttpClient){
     
   }
 
-  getAnswer(questionIndex: number): (number | undefined){
-    return this.userAnswers[questionIndex];
+  getUserAnswer(questionIndex: number): number[]{
+    if (this.userAnswers&&this.userAnswers[questionIndex])
+      return this.userAnswers[questionIndex];
+    return [];
+  }
+
+  isAnswerSetted(questionIndex: number, answerIndex: number): boolean{
+    return (this.getUserAnswer(questionIndex).includes(answerIndex));
+  }
+
+  getRandomOrder(n: number): number[]{
+    let order = [];
+    for (let i = 0; i < n; i++) 
+      order.push(i);
+    for (let i = n - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    return order;
+  }
+  getQuestions(): Question[]{
+    return this.questions;
   }
   getQuestionCount(): number{
     return this.questions.length;
   }
-  setAnswer(questionIndex: number, answer: number) {
-    if(this.mode == TesterMode.Learning){
-      if (this.userAnswers[questionIndex]===undefined)
-        this.answeredQestions += 1;
-      else
-        return;
-      if (answer==this.questions[questionIndex].correctAnswer)
-        this.result += 1;
-    }
-    else if (this.mode == TesterMode.Test) {
-      if (this.submited)
-        return;
-    }
-    this.userAnswers[questionIndex] = answer;
+  getQuestion(index: number): Question{
+    return this.questions[index];
+  }
+  setUserAnswer(questionIndex: number, answer: number) {
+    if (this.userAnswers[questionIndex]===undefined)
+      this.answeredQestions += 1;
+    else
+      return;
+    if (this.questions[questionIndex].correctAnswers.includes(answer))
+      this.result += 1;
+    this.userAnswers[questionIndex] = [answer];
+  }
+
+  isCorrectAnswer(questionIndex: number, answerIndex: number){
+    return this.questions[questionIndex].correctAnswers.includes(answerIndex);
+  }
+  isCorrectAnswerQ(question: Question, answerIndex: number){
+    return question.correctAnswers.includes(answerIndex);
   }
 
   getAnswerClass(questionIndex: number, answerIndex: number): string{
-    if(this.mode == TesterMode.Learning){
-      if (this.userAnswers[questionIndex]!==undefined){
-        if (this.questions[questionIndex].correctAnswer==answerIndex&&answerIndex!=this.userAnswers[questionIndex])
-          return "correctUncheckedAnswer";
-        if (answerIndex==this.userAnswers[questionIndex]){
-          if (this.questions[questionIndex].correctAnswer == this.userAnswers[questionIndex])
-            return "correctAnswer";
-          else
-            return "wrongAnswer";
-        } 
-      }
-    }
-    else if (this.mode == TesterMode.Test) {
-      if (this.submited){
-        if (this.questions[questionIndex].correctAnswer==answerIndex&&answerIndex!=this.userAnswers[questionIndex])
-          return "correctUncheckedAnswer";
-        if (answerIndex==this.userAnswers[questionIndex]){
-          if (this.questions[questionIndex].correctAnswer == this.userAnswers[questionIndex])
-            return "correctAnswer";
-          else
-            return "wrongAnswer";
-        }
-      }
+    if (this.userAnswers[questionIndex]!==undefined){
+      if (this.userAnswers[questionIndex].includes(answerIndex)){
+        if (this.isCorrectAnswer(questionIndex, answerIndex))
+          return "correctAnswer";
+        else
+          return "wrongAnswer";
+      } 
+      if (this.isCorrectAnswer(questionIndex, answerIndex))
+        return "correctUncheckedAnswer";
     }
     return "";
   }
   submitAnswers(): void{
-    if(this.mode == TesterMode.Learning){
-      if (this.userAnswers[this.currentQestion] === undefined)
-        return;
-      if(this.currentQestion<this.getQuestionCount()-1){
-        this.currentQestion += 1;
-      }
-      else{
-        this.submited = true;
-      }
+    
+    if (this.userAnswers[this.currentQestion] === undefined)
+      return;
+    if(this.currentQestion<this.getQuestionCount()-1){
+      this.currentQestion += 1;
+      this.changeOrder();
     }
-    else if (this.mode == TesterMode.Test) {
+    else{
       this.submited = true;
-      range(this.questions.length)
-      .pipe(count(i => this.userAnswers[i]===this.questions[i].correctAnswer))
-      .subscribe(v => this.result = v);
     }
   }
 
   loadQuestions(fileName: string): void {
     this.currentTest = fileName;
-    this.http.get<Question[]>('assets/'+fileName+".json")
+    this.http.get<any[]>('assets/tests/'+fileName+".json")
     .pipe(
       map((data: any) => {
-        const questions = data.questions.map((q: any) => new Question(q.content, q.answers, q.correct_answer));
+        const questions = data.questions.map(
+          (q: any) => {
+            let correct_answers: number[] | undefined = undefined;
+            let correct_answer: number | undefined = undefined;
+            if (Array.isArray(q.correct_answer))
+              correct_answers = q.correct_answer;
+            else
+              correct_answer = q.correct_answer;
+            return new Question(q.content, q.answers, correct_answer, correct_answers);
+          }
+        );
         return questions;
       })
     )
     .subscribe((questions: Question[]) => {
       this.questions = questions;
+      this.changeOrder();
     });
     this.restart();
   }
@@ -120,7 +136,7 @@ export class TesterService{
   }
 
   reduce(): void {
-    this.questions = this.questions.filter((q, i) => q.correctAnswer != this.userAnswers[i]);
+    this.questions = this.questions.filter((q, i) => !q.correctAnswers.includes(this.userAnswers[i][0]));
     this.restart();
   }
 
@@ -128,5 +144,14 @@ export class TesterService{
     if (this.answeredQestions==0)
       return 0;
     return Math.round(this.result/this.answeredQestions*100);
+  }
+
+  changeOrder(){
+    const question = this.getQuestion(this.currentQestion);
+    this.order = [];
+    for(let i=0;i<question.answers.length;i++)
+      this.order[i] = i;
+    if (this.randomOrder)
+      this.order = this.getRandomOrder(question.answers.length);
   }
 }

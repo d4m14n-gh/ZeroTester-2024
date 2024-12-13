@@ -1,6 +1,20 @@
 
 <section>
-    <h3>All tests:</h3>
+    <h3>All tests learing:</h3>
+    <hr>
+    <ol>
+        <li 
+            *ngFor="let test of tests"
+            [routerLink]="'/learning/'+test"
+        >
+            {{test}}
+        </li>
+    </ol>
+</section>
+
+
+<section>
+    <h3>All questions view:</h3>
     <hr>
     <ol>
         <li 
@@ -12,6 +26,26 @@
     </ol>
 </section>
 
+<section>
+    <details>
+        <summary>
+            tytul
+        </summary>
+        <p>
+            tresc
+        </p>
+        <div>
+            <details>
+                <summary>
+                    tytul
+                </summary>
+                <p>
+                    tresc
+                </p>
+            </details>
+        </div>
+    </details>
+</section>
 
 <!-- <fieldset>
     <legend>Tytuł grupy</legend>

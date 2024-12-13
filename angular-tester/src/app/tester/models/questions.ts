@@ -1,12 +1,17 @@
 export class Question{
     content: string = "";
     answers: string[] = [];
-    correctAnswer: number | undefined = 0;
+    correctAnswers: number[] = []
 
-    constructor(content: string, answers: string[], correct_answer: number | undefined) {
+    constructor(content: string, answers: string[], correct_answer?: number, correct_answers?: number[]) {
         this.content = content;
         this.answers = answers;
-        this.correctAnswer = correct_answer;
+        if (correct_answers !== undefined)
+            this.correctAnswers = correct_answers;
+        else if (correct_answer !== undefined)
+            this.correctAnswers = [correct_answer];
+        else
+            this.correctAnswers = [];
     }
 
     static default(): Question{

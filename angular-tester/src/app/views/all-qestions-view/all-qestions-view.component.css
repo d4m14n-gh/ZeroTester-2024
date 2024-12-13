@@ -1,0 +1,4 @@
+li:hover {
+    cursor: inherit !important;
+    background-color: transparent;
+}

@@ -1,0 +1,29 @@
+<section>
+    <h2>
+        {{testName}}
+    </h2>
+    <div *ngFor="let question of tester.getQuestions(); let qi=index">
+        <hr>
+        <h3>
+            <span style="user-select: none;">
+                {{qi+1}}/{{tester.getQuestionCount()}}) 
+            </span>
+            {{question.content}}
+        </h3>
+        <ul class="no-bullets">
+            <li 
+            *ngFor="let answer of question.answers; let ai = index" 
+            (click)="tester.setUserAnswer(qi, ai)"
+            [ngClass]="tester.getAnswerClass(qi, ai)"
+            [style.background-color]="(tester.isCorrectAnswer(qi, ai)) ? 'rgba(38, 168, 12, 0.3)' : ''"
+            > 
+                <span style="user-select: none;">
+                    {{getLetter(ai)}}) 
+                </span>
+                <span>
+                    {{answer}} 
+                </span>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+.logo {
+    background-color: var(--primary-color-light);
+    border-radius: 999px;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    margin-right: 0.5ch;
+    vertical-align: -10%;
+}

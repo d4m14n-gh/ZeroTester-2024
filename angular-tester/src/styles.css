@@ -1,12 +1,17 @@
 *{
-    --primary-color: #4d376c;
-    --primary-color-light-raw: 77, 57, 102;
-    --primary-color-light-raw: 140, 100, 195;
-    --primary-color-light: #8c64c3;
     --bg-color: rgba(255, 255, 255, 0.05);
     --blur: 5px;
+    --borders: none;
+    --borders: 1px solid rgba(255, 255, 255, 0.05);
+    
+    --primary-color-light-raw: 226, 72, 25;
+    --primary-color-light-raw: 139, 99, 193;
+    --primary-color-light: #e24819;
+    --primary-color-light: #8c64c3;
+    --primary-color: hsl(from var(--primary-color-light) h s calc(l - 20));
 }
 body {
+    background: radial-gradient(ellipse farthest-corner at center, #00000025, #16181925);
     color: silver;
     background-color: #1e1e27f1;
     background-color: #161819;
@@ -20,12 +25,12 @@ body {
     height: 100%;
 }
 
-.element {
+.background {
     position: fixed;
     background-image: url(".\\assets\\go.png");
-    width: 100vw;
-    height: 100vh;
-    opacity: 10%;
+    width: 100%;
+    height: 100%;
+    opacity: 15%;
     top: 0;
     left: 0;
     background-position: center;
@@ -34,11 +39,10 @@ body {
 
 header, footer {
     background: linear-gradient(to left, rgba(var(--primary-color-light-raw), 0.25), var(--bg-color));
-    /* background-color: rgba(var(--primary-color), 0.5); */
-    /* background-color: rgba(0, 0, 0, 0.1); */
     backdrop-filter: blur(var(--blur));
     user-select: none;
-    /* background: linear-gradient(to top, var(--primary-color), #383c44 70%); */
+    border-bottom: var(--borders);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.025);
 }
 
 h1{
@@ -65,6 +69,8 @@ section, fieldset {
     border-radius: 10px;
     background-color: var(--bg-color);
     backdrop-filter: blur(var(--blur));
+    border: var(--borders);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.025);
 }
 form {
     border-top: 1px solid rgb(71, 74, 79);
@@ -154,7 +160,7 @@ tr:hover{
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to top, var(--primary-color), #383c44);
+    background: linear-gradient(to top, rgba(var(--primary-color-light-raw), 0.25), var(--bg-color));
 }
 
 tr:hover .icon {
@@ -175,7 +181,6 @@ li {
     border-radius: 5px;
 }
 li:hover {
-    /* background: linear-gradient(to top, var(--primary-color), transparent 50%); */
     background-color: var(--bg-color);
     cursor: pointer;
 }

@@ -4,7 +4,7 @@
             {{tester.currentQestion+1}}/{{tester.getQuestionCount()}}
         </h3>
     </legend>
-    <app-question-view [qi]="tester.currentQestion" [question]="tester.questions[tester.currentQestion]"></app-question-view>
+    <app-question-view [qi]="tester.currentQestion" [question]="tester.getQuestion(tester.currentQestion)"></app-question-view>
     <hr>
     <input *ngIf="!tester.questionEnded()&&tester.answeredQestions==tester.currentQestion+1" type="button" value="Go Next" (click)="tester.submitAnswers()">
     <input *ngIf="!tester.questionEnded()&&tester.answeredQestions==tester.currentQestion" disabled type="button" value="Go Next" (click)="tester.submitAnswers()">

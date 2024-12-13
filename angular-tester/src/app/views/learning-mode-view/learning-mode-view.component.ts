@@ -7,7 +7,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-learning-mode-view',
   standalone: true,
-  imports: [CommonModule, QuestionViewComponent, RouterLink],
+  imports: [CommonModule, QuestionViewComponent],
   templateUrl: './learning-mode-view.component.html',
   styleUrl: './learning-mode-view.component.css'
 })

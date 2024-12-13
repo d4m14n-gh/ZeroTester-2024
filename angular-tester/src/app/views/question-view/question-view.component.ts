@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Question } from '../../tester/models/questions';
 import { TesterService } from '../../tester/tester.service';
 
@@ -13,9 +13,14 @@ import { TesterService } from '../../tester/tester.service';
 export class QuestionViewComponent {
   @Input() qi: number = 0;
   @Input() question: Question = Question.default();
+ 
+
 
   constructor(public tester: TesterService) {
 
+  }
+  getAnswer(index: number): string{
+    return this.question.answers[index];
   }
   getLetter(index: number): string{
     return String.fromCharCode(65 + index);
@@ -27,7 +32,7 @@ export class QuestionViewComponent {
       console.log(`Naciśnięto klawisz: ${key}`);
       let answer = Number.parseInt(key)-1;
       if (answer<this.question.answers.length)
-        this.tester.setAnswer(this.qi, answer);
+        this.tester.setUserAnswer(this.qi, answer);
     }
     if (key === 'Enter' || key===' ') {
       console.log(`Naciśnięto klawisz: ${key}`);
