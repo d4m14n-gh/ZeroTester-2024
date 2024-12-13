@@ -47,6 +47,10 @@
     </details>
 </section>
 
+<section>
+    <input type="file" accept=".json, .yml" (change)="save($event)">
+    <input type="button" value="Upload" (click)="questionSetService.getAllQuestionSets()">
+</section>
 <!-- <fieldset>
     <legend>Tytuł grupy</legend>
     <label for="name">Imię:</label>

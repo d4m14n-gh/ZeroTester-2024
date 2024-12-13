@@ -100,6 +100,7 @@ input:focus, select:focus {
 
 input[type="submit"], input[type="button"] {
     background: linear-gradient(to top, var(--primary-color), transparent 40%);
+    background: linear-gradient(to left, rgba(var(--primary-color-light-raw), 0.25), var(--bg-color));
     background-color: var(--bg-color);
     outline: none;
 }

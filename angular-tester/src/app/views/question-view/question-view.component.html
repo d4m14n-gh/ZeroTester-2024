@@ -3,9 +3,10 @@
 </h3>
 <ul class="no-bullets">
     <li 
-        *ngFor="let answerIndex of tester.order; let answerNumer = index;" 
-        (click)="tester.setUserAnswer(qi, answerIndex)"
-        [ngClass]="tester.getAnswerClass(qi, answerIndex)"
+        *ngFor="let answerIndex of tester.getOrder(); let answerNumer = index;" 
+        (click)="tester.switchUserAnswer(answerIndex)"
+        [ngClass]="tester.getAnswerClass(answerIndex)"
+        [ngClass]="tester.isAnswerSetted(answerIndex)?'selected':''"
     > 
         <span>
             {{getLetter(answerNumer)}}) 
@@ -13,7 +14,7 @@
         <span>
             {{getAnswer(answerIndex)}} 
         </span>
-        <span *ngIf="tester.isAnswerSetted(qi, answerIndex)" style="position: absolute; user-select: none;" >
+        <span *ngIf="tester.isAnswerSetted(answerIndex)" style="position: absolute; user-select: none;" >
             📌
         </span>
     </li>

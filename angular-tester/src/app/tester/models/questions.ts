@@ -17,4 +17,17 @@ export class Question{
     static default(): Question{
         return new Question("", [], undefined);
     }
+    static fromJson(question: any): Question {
+        let correct_answers: number[] | undefined = undefined;
+        let correct_answer: number | undefined = undefined;
+        if (Array.isArray(question["correct_answer"]))
+            correct_answers = question["correct_answer"];
+        else
+            correct_answer = question["correct_answer"];
+        return new Question(question["content"], question["answers"], correct_answer, correct_answers);
+    }
+    static quetionsFromJson(jsonContent: string): Question[]{
+        let jsonParsed = JSON.parse(jsonContent);
+        return jsonParsed["questions"].map(Question.fromJson);
+    }
 }

@@ -1,21 +1,19 @@
-<section>
+<section *ngIf="questions">
     <h2>
-        {{testName}}
+        {{questionSetName}}
     </h2>
-    <div *ngFor="let question of tester.getQuestions(); let qi=index">
+    <div *ngFor="let question of questions; let qi=index">
         <hr>
         <h3>
             <span style="user-select: none;">
-                {{qi+1}}/{{tester.getQuestionCount()}}) 
+                {{qi+1}}/{{questions.length}}) 
             </span>
             {{question.content}}
         </h3>
         <ul class="no-bullets">
             <li 
             *ngFor="let answer of question.answers; let ai = index" 
-            (click)="tester.setUserAnswer(qi, ai)"
-            [ngClass]="tester.getAnswerClass(qi, ai)"
-            [style.background-color]="(tester.isCorrectAnswer(qi, ai)) ? 'rgba(38, 168, 12, 0.3)' : ''"
+            [style.background-color]="question.correctAnswers.includes(ai) ? 'rgba(139, 168, 12, 0.25)' : ''"
             > 
                 <span style="user-select: none;">
                     {{getLetter(ai)}}) 
@@ -26,4 +24,13 @@
             </li>
         </ul>
     </div>
+</section>
+
+<section *ngIf="!questions">
+    <p>
+        ⚠️ Question set "{{questionSetName}}" doesn't exists.
+        <span [routerLink]="''" style="user-select: none;text-decoration: underline;" class="pointerable"> 
+            Go back
+        </span>
+    </p>
 </section>

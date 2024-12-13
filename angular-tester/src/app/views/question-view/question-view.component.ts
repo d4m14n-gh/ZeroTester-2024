@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Question } from '../../tester/models/questions';
-import { TesterService } from '../../tester/tester.service';
+import { TesterService } from '../../tester/services/tester.service';
 
 @Component({
   selector: 'app-question-view',
@@ -31,13 +31,13 @@ export class QuestionViewComponent {
     if (key === '1' || key === '2' || key === '3' || key === '4' || key === '5' || key === '6' || key === '7' || key === '8') {
       console.log(`Naciśnięto klawisz: ${key}`);
       let answer = Number.parseInt(key)-1;
-      if (answer<this.question.answers.length)
-        this.tester.setUserAnswer(this.qi, answer);
+      //if (answer<this.question.answers.length)
+        //this.tester.setUserAnswer(this.qi, answer);
     }
     if (key === 'Enter' || key===' ') {
       console.log(`Naciśnięto klawisz: ${key}`);
-      if(!this.tester.questionEnded()&&this.tester.answeredQestions==this.tester.currentQestion+1)
-        this.tester.submitAnswers();
+      // if(!this.tester.questionEnded()&&this.tester.answeredQestions==this.tester.currentQestion+1)
+      //   this.tester.submitAnswers();
     }
   }
 }
