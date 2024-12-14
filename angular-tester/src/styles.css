@@ -1,13 +1,19 @@
-*{
+:root{
     --bg-color: rgba(255, 255, 255, 0.05);
-    --blur: 5px;
+    --blur: 15px;
     --borders: none;
     --borders: 1px solid rgba(255, 255, 255, 0.05);
+    --bg-answer-opacity: 0.175;
     
-    --primary-color-light-raw: 226, 72, 25;
+    --primary-color-light: rgb(159, 182, 191);
+    --primary-color-light-raw: 159, 182, 191;
+    --primary-color-light-raw: 139, 199, 193;
     --primary-color-light-raw: 139, 99, 193;
-    --primary-color-light: #e24819;
-    --primary-color-light: #8c64c3;
+    --primary-color-light-raw: rgb(46, 114, 201);
+    --primary-color-light-raw: 46, 114, 201;
+    
+    
+    --primary-color-light: rgb(var(--primary-color-light-raw));
     --primary-color: hsl(from var(--primary-color-light) h s calc(l - 20));
 }
 body {
@@ -15,6 +21,7 @@ body {
     color: silver;
     background-color: #1e1e27f1;
     background-color: #161819;
+    /* background-color: rgb(96, 87, 58);
     /* font-family: "Helvetica Neue", Arial, sans-serif; */
     /* font-family: 'JetBrains Mono';
     font-family: 'Roboto', sans-serif; */
@@ -28,9 +35,10 @@ body {
 .background {
     position: fixed;
     background-image: url(".\\assets\\go.png");
+    background-image: url(".\\assets\\bg.jpg");
     width: 100%;
     height: 100%;
-    opacity: 15%;
+    opacity: 25%;
     top: 0;
     left: 0;
     background-position: center;
@@ -73,12 +81,7 @@ section, fieldset {
     box-shadow: 0 4px 6px rgba(255, 255, 255, 0.025);
 }
 form {
-    border-top: 1px solid rgb(71, 74, 79);
     padding: 20px;
-}
-
-label {
-    text-transform: capitalize;
 }
 
 input, select {
@@ -90,7 +93,7 @@ input, select {
     border-radius: 10px;
     font-size: 1.0em;
     outline: none;
-    transition: border-color 0.5s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
     box-sizing: content-box;
     width: 300px;
 }
@@ -105,7 +108,7 @@ input[type="submit"], input[type="button"] {
     outline: none;
 }
 input[type="submit"]:hover, input[type="button"]:hover {
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--primary-color-light);
     box-shadow: 0 0 5px var(--primary-color-light);
 }
 input[type="submit"]:enabled:active {
@@ -125,13 +128,11 @@ label, form span {
 table {
     overflow: hidden;
     border-radius: 10px;
+    border-spacing: 0;
 }
 thead {
     background-color: #0b0d0f3a;
     background: linear-gradient(to left, var(--primary-color), #0b0d0f3a 50%);
-}
-tr {
-    padding: 10px 10px;
 }
 td, th {
     padding: 10px;
@@ -191,11 +192,15 @@ li:hover {
 }
 
 hr {
-    opacity: 10%;
+    opacity: 8%;
 } 
 
 .pointerable:hover{
     cursor: pointer;
+}
+
+br {
+    user-select: none;
 }
 
 
@@ -215,3 +220,5 @@ hr {
     }
 }
 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,28 @@
+<section>
+    <h3>
+        Import question set
+    </h3>
+    <hr>
+    <form [formGroup]="importForm" (ngSubmit)="onSubmit()">
+        <label for="questinSetNameInput">Set name:</label>
+        <br>
+        <input id="questinSetNameInput" formControlName="qsname" type="text">
+        <br>
+        <label for="questinSetFileInput">File (.yml .json):</label>
+        <br>
+        <label class="customUpload" for="questinSetFileInput" style="user-select: none;">
+            Upload File
+            ⬆
+            <div *ngIf="getFileName()!==''">
+                <hr>
+                <span style="overflow-x: scroll; display: inline-block; width: 100%;">
+                    {{getFileName()}}
+                </span>
+            </div>
+        </label>
+        <input id="questinSetFileInput" formControlName="qsfile" type="file" accept=".json, .yml" (change)="onFileChange($event)" hidden>
+        <br>
+        <br>
+        <input type="submit" [disabled]="!importForm.valid" value="Upload">
+    </form>
+</section>

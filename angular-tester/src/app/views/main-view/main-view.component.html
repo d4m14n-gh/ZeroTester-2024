@@ -1,56 +1,31 @@
 
 <section>
-    <h3>All tests learing:</h3>
+    <h3>All qustion sets:</h3>
     <hr>
-    <ol>
-        <li 
-            *ngFor="let test of tests"
-            [routerLink]="'/learning/'+test"
-        >
-            {{test}}
-        </li>
-    </ol>
+    <table>
+        <tr *ngFor="let test of tests">
+            <td>
+                <span [routerLink]="'/learning/'+test"  style="cursor: pointer;">
+                    {{test}}
+                </span>
+            </td>
+            <td style="user-select: none;">
+                <span [routerLink]="'/tests/'+test"  style="cursor: pointer;">
+                    🔍
+                </span>
+                <span (click)="questionSetService.deleteQuestionSet(test)" style="cursor: pointer;">
+                    🗑️
+                </span>
+            </td>
+        </tr>
+    </table>
 </section>
 
+<app-import-question-set-view></app-import-question-set-view>
 
-<section>
-    <h3>All questions view:</h3>
-    <hr>
-    <ol>
-        <li 
-            *ngFor="let test of tests"
-            [routerLink]="'/tests/'+test"
-        >
-            {{test}}
-        </li>
-    </ol>
-</section>
-
-<section>
-    <details>
-        <summary>
-            tytul
-        </summary>
-        <p>
-            tresc
-        </p>
-        <div>
-            <details>
-                <summary>
-                    tytul
-                </summary>
-                <p>
-                    tresc
-                </p>
-            </details>
-        </div>
-    </details>
-</section>
-
-<section>
-    <input type="file" accept=".json, .yml" (change)="save($event)">
-    <input type="button" value="Upload" (click)="questionSetService.getAllQuestionSets()">
-</section>
+<!-- <section>
+    <input type="color" [value]="color" (change)="colorChange($event)">
+</section> -->
 <!-- <fieldset>
     <legend>Tytuł grupy</legend>
     <label for="name">Imię:</label>

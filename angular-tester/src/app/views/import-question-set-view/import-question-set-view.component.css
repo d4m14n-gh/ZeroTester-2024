@@ -1,0 +1,20 @@
+.customUpload {
+    margin: 10px;
+    background-color: #383c44;
+    color: silver;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1.0em;
+    outline: none;
+    transition: border-color 0.5s ease;
+    box-sizing: content-box;
+    width: 300px;
+
+    text-align: center;
+    display: inline-block;
+}
+.customUpload:hover {
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color-light);
+}

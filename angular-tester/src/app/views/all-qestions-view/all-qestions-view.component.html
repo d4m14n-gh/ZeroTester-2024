@@ -13,7 +13,7 @@
         <ul class="no-bullets">
             <li 
             *ngFor="let answer of question.answers; let ai = index" 
-            [style.background-color]="question.correctAnswers.includes(ai) ? 'rgba(139, 168, 12, 0.25)' : ''"
+            [style.background-color]="question.correctAnswers.includes(ai) ? 'rgba(139, 168, 12, var(--bg-answer-opacity))' : ''"
             > 
                 <span style="user-select: none;">
                     {{getLetter(ai)}}) 

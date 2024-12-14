@@ -1,17 +1,17 @@
 .correctAnswer {
-    background-color: rgba(38, 168, 12, 0.25);
+    background-color: rgba(38, 168, 12, var(--bg-answer-opacity));
 }
 
 .correctUncheckedAnswer {
-    background-color: rgba(139, 168, 12, 0.25);
+    background-color: rgba(139, 168, 12, var(--bg-answer-opacity));
 }
 
 .wrongAnswer {
-    background-color: rgb(168, 12, 12, 0.25);
+    background-color: rgb(168, 12, 12, var(--bg-answer-opacity));
 }
 
 .selected {
-    background-color: rgba(var(--primary-color-light-raw), 0.25)
+    background-color: rgba(var(--primary-color-light-raw), var(--bg-answer-opacity))
 }
 
 
