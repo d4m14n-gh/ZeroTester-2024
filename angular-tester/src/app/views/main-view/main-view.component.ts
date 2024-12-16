@@ -13,11 +13,11 @@ import { FormsModule, NgModel } from '@angular/forms';
 import { ImportQuestionSetViewComponent } from "../import-question-set-view/import-question-set-view.component";
 
 @Component({
-  selector: 'app-main-view',
-  standalone: true,
-  imports: [CommonModule, RouterLink, ImportQuestionSetViewComponent],
-  templateUrl: './main-view.component.html',
-  styleUrl: './main-view.component.css'
+    selector: 'app-main-view',
+    standalone: true,
+    imports: [CommonModule, RouterLink, ImportQuestionSetViewComponent],
+    templateUrl: './main-view.component.html',
+    styleUrl: './main-view.component.css'
 })
 export class MainViewComponent implements OnDestroy{
 

@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
 import { TesterService } from '../../tester/services/tester.service';
 import { CommonModule } from '@angular/common';
 import { QuestionViewComponent } from '../question-view/question-view.component';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-learning-mode-view',
-  standalone: true,
-  imports: [CommonModule, QuestionViewComponent, RouterLink],
-  templateUrl: './learning-mode-view.component.html',
-  styleUrl: './learning-mode-view.component.css'
+    selector: 'app-learning-mode-view',
+    standalone: true,
+    imports: [CommonModule, QuestionViewComponent, RouterLink],
+    templateUrl: './learning-mode-view.component.html',
+    styleUrl: './learning-mode-view.component.css'
 })
 export class LearningModeViewComponent implements OnInit{
   testName: string = "";

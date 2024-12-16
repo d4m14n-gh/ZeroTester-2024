@@ -4,11 +4,11 @@ import { Question } from '../../tester/models/questions';
 import { TesterService } from '../../tester/services/tester.service';
 
 @Component({
-  selector: 'app-question-view',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './question-view.component.html',
-  styleUrl: './question-view.component.css'
+    selector: 'app-question-view',
+    standalone: true,
+    imports: [CommonModule],
+    templateUrl: './question-view.component.html',
+    styleUrl: './question-view.component.css'
 })
 export class QuestionViewComponent {
   @Input() qi: number = 0;

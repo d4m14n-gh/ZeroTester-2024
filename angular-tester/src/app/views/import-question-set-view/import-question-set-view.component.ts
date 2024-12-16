@@ -7,11 +7,11 @@ import * as yaml from 'js-yaml';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-import-question-set-view',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MatIconModule],
-  templateUrl: './import-question-set-view.component.html',
-  styleUrl: './import-question-set-view.component.css'
+    selector: 'app-import-question-set-view',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, MatIconModule],
+    templateUrl: './import-question-set-view.component.html',
+    styleUrl: './import-question-set-view.component.css'
 })
 export class ImportQuestionSetViewComponent {
   importForm: FormGroup;
