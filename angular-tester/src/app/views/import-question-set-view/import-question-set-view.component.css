@@ -1,6 +1,6 @@
 .customUpload {
     margin: 10px;
-    background-color: #383c44;
+    background-color: var(--bg-color);;
     color: silver;
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 10px 15px;
@@ -17,4 +17,7 @@
 .customUpload:hover {
     border: 1px solid var(--primary-color);
     box-shadow: 0 0 5px var(--primary-color-light);
+}
+option {
+    background-color: #161819;
 }

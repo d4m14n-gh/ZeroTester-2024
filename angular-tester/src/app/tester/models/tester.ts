@@ -15,7 +15,7 @@ export class Tester {
             throw new Error("Lista jest pusta");
         this.questions = questions;
         this.userAnswers = new Array(this.questions.length).fill(null).map(() => new Set());;
-        console.log("Create tester. User Answers: "+this.userAnswers)
+        console.log("Create tester");
     }
 
     

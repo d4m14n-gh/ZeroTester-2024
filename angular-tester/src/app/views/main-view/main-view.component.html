@@ -1,27 +1,27 @@
 
 <section>
     <h3>All qustion sets:</h3>
-    <hr>
-    <table>
-        <tr *ngFor="let test of tests">
-            <td>
-                <span [routerLink]="'/learning/'+test"  style="cursor: pointer;">
-                    {{test}}
+    <table style="width: 100%;">
+        <tr *ngFor="let test of tests" [routerLink]="'/learning/'+test" style="cursor: pointer;">
+            <td style="text-align: left;">
+                <span style="user-select: none;">
+                    📝 
                 </span>
+                {{test}}
             </td>
-            <td style="user-select: none;">
-                <span [routerLink]="'/tests/'+test"  style="cursor: pointer;">
+            <td style="user-select: none; width: 100px;">
+                <span [routerLink]="'/tests/'+test" class="button">
                     🔍
                 </span>
-                <span (click)="questionSetService.deleteQuestionSet(test)" style="cursor: pointer;">
+                <span (click)="questionSetService.deleteQuestionSet(test)"class="button">
                     🗑️
                 </span>
             </td>
         </tr>
     </table>
+    <br>
+    <app-import-question-set-view></app-import-question-set-view>
 </section>
-
-<app-import-question-set-view></app-import-question-set-view>
 
 <!-- <section>
     <input type="color" [value]="color" (change)="colorChange($event)">

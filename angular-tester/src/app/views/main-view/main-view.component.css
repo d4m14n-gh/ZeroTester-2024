@@ -1,3 +1,25 @@
 details{
     padding-left: 10px;
 }
+
+.button{
+    opacity: 0%;
+    transition: opacity 250ms ease;
+}
+tr:hover .button{
+    opacity: 60%;
+}
+.button:hover{
+    opacity: 100% !important;
+    cursor: pointer;
+}
+
+section {
+    margin: 0 15px;
+    margin-bottom: 15px;
+    /* border-radius: 20px 20px 0 0;
+    height: 100%; */
+}
+
+
+

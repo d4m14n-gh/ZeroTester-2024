@@ -7,3 +7,16 @@
     margin-right: 0.5ch;
     vertical-align: -10%;
 }
+
+header{
+    background-color: transparent;
+    background: none;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+#app-wrapper {
+    height: 100vh;
+    overflow-y: scroll;
+}

@@ -1,18 +1,24 @@
-<header>
-  <h1>
-    <span [routerLink]="'/'" class="pointerable">
-      <div class="logo"></div> 
-      <span style="color: var(--primary-color-light);">Z</span>ero<span style="color: var(--primary-color-light);">T</span>ester 
-    </span>  
-    <span style="opacity: 50%; font-size: 0.72137em;">
-      by D4m14n
-    </span>
-  </h1>
-</header>
-
-<article>
-  <router-outlet></router-outlet>
-</article>
+<div id="app-wrapper">
+  <header>
+    <h1>
+      <span [routerLink]="'/'" class="pointerable">
+        <div class="logo"></div> 
+        <span style="color: var(--primary-color-light);">Z</span>ero<span style="color: var(--primary-color-light);">T</span>ester 
+      </span>  
+      <span style="opacity: 50%; font-size: 0.72137em;">
+        by D4m14n
+      </span>
+    </h1>
+  </header>
+  
+  <article>
+    <router-outlet></router-outlet>
+  </article>
+  
+  <footer style="visibility: hidden;">
+    
+  </footer>
+</div>
 <!-- 
 <footer>
   <h1>
@@ -21,5 +27,7 @@
 </footer> -->
 
 
+<!-- <video class="video-background" loop autoplay muted playsinline src="https://cdn-l-thewitcher.cdprojektred.com/website/home/325ed9b515a0a5bed2af/witcher_video.mp4">
+</video> -->
 <div class="background">
 </div>
