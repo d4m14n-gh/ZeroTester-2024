@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Question } from '../../tester/models/questions';
 import { TesterService } from '../../tester/services/tester.service';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'app-question-view',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, MatIconModule],
     templateUrl: './question-view.component.html',
     styleUrl: './question-view.component.css'
 })

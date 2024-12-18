@@ -25,10 +25,9 @@ export class QuestionSetService {
 
       request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
         const db = request.result;
-        if (!db.objectStoreNames.contains('questionSets')) {
-          let store = db.createObjectStore('questionSets', { keyPath: 'name'});
-          //store.createIndex("nameIndex", "name", { unique: true });
-        }
+        if (!db.objectStoreNames.contains('questionSets'))
+          db.createObjectStore('questionSets', { keyPath: 'name'});
+        this.db = request.result;
         resolve();
       };
 
@@ -44,27 +43,20 @@ export class QuestionSetService {
     });
   }
 
-  saveFileToIndexedDB(questionSetName: string, content: Question[]): void {
-    if (!this.db) return;
+  async saveFileToIndexedDB(questionSetName: string, content: Question[]): Promise<void> {
+    if (!this.db) await this.initializeDatabase();
 
-    const transaction = this.db.transaction('questionSets', 'readwrite');
+    const transaction = this.db!.transaction('questionSets', 'readwrite');
     const store = transaction.objectStore('questionSets');
-
     const questionSetRecord = {
       name: questionSetName,
       content: content,
       timestamp: new Date(),
     };
-
     const request = store.add(questionSetRecord);
-    request.onsuccess = () => {
-      console.log(`Plik "${questionSetName}" został zapisany w IndexedDB.`);
-      this.triggerQuestionSetUpdate();
-    };
-
-    request.onerror = (event) => {
-      console.error('Błąd podczas zapisywania pliku:', request.error);
-    };
+    
+    request.onsuccess = () => this.triggerQuestionSetUpdate();
+    request.onerror = () => console.error('Błąd podczas zapisywania pytan:', request.error);
   }
   getQuestionSet(name: string): Promise<Question[]> {
     return new Promise(async (resolve, reject) => {
@@ -95,8 +87,7 @@ export class QuestionSetService {
   }
   getAllQuestionSetNames(): Promise<string[]> {
     return new Promise(async (resolve) => {
-      if (!this.db) 
-        await this.initializeDatabase();
+      if (!this.db) await this.initializeDatabase();
     
       const transaction = this.db!.transaction('questionSets', 'readonly');
       const store = transaction.objectStore('questionSets');

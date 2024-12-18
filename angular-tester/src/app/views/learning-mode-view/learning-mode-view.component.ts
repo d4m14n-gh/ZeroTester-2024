@@ -1,7 +1,7 @@
 import { TesterService } from '../../tester/services/tester.service';
 import { CommonModule } from '@angular/common';
 import { QuestionViewComponent } from '../question-view/question-view.component';
-import { RouterLink, ActivatedRoute } from '@angular/router';
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LearningModeViewComponent implements OnInit{
   testName: string = "";
-  constructor(public tester: TesterService, private route: ActivatedRoute) {
+  constructor(public tester: TesterService, private route: ActivatedRoute, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -21,5 +21,9 @@ export class LearningModeViewComponent implements OnInit{
       this.testName = this.route.snapshot.paramMap.get('filename')??"404";
       this.tester.loadQuestions2(this.testName);
     }
+  }
+  finishLearning(): void {
+    const currentUrl = this.router.url;
+    this.router.navigate([currentUrl, 'result']);
   }
 }

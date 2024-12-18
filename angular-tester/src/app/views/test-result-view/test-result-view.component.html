@@ -1,0 +1,38 @@
+<section>
+    @if (tester.isTesterSetted()) {
+        <div class="centerRow">
+            <mat-icon>
+                leaderboard
+            </mat-icon>
+            &nbsp;
+            <h3>Quiz result:</h3>
+        </div>
+        {{tester.getResult()}}/{{tester.getUserAnswersCnt()}} {{tester.getPercent()}}%
+        <br>
+        <br>
+        <div class="centerRow">
+            @for (item of [1, 2, 3, 4 , 5]; track $index) {
+                <!-- {{$index}}: 
+                &nbsp; -->
+                <mat-icon style="color: rgb(152, 173, 77);">
+                    done_outline
+                </mat-icon>
+                &nbsp;
+                <mat-icon style="color: rgb(239, 83, 80);">
+                    disabled_by_default
+                </mat-icon>
+                &nbsp;
+            }
+        </div>
+        <br>
+    }
+    @else {
+        <div class="centerRow">
+            <mat-icon>
+                warning
+            </mat-icon>
+            &nbsp;
+            <h3>No learning session found.</h3>
+        </div>
+    }
+</section>

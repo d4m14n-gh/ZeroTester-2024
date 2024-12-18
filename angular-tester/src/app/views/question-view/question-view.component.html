@@ -8,15 +8,31 @@
         [ngClass]="tester.getAnswerClass(answerIndex)"
         [ngClass]="tester.isAnswerSetted(answerIndex)?'selected':''"
     > 
-        <span>
-            {{getLetter(answerNumer)}}) 
-        </span>
-        <span>
-            {{getAnswer(answerIndex)}} 
-        </span>
-        <span *ngIf="tester.isAnswerSetted(answerIndex)" style="position: absolute; user-select: none;" >
-            📌
-        </span>
+        <div class="centerRow">
+    
+            <span>
+                {{getLetter(answerNumer)}}) 
+            </span>
+            <span style="user-select: none;">
+                &nbsp;
+            </span>
+            <span>
+                {{getAnswer(answerIndex)}} 
+            </span>
+            <span style="user-select: none;">
+                &nbsp;
+            </span>
+            @if (tester.isAnswerSetted(answerIndex)) {
+                <mat-icon style="padding: 0 10px;">
+                    radio_button_checked
+                </mat-icon>
+            }
+            @else {
+                <mat-icon style="opacity: 0;">
+                    radio_button_unchecked
+                </mat-icon>
+            }
+        </div>
     </li>
 </ul>
 

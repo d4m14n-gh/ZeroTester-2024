@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ApplicationConfig, Component, OnDestroy, OnInit } from '@angular/core';
 import { Question } from '../../tester/models/questions';
 import { HttpClient } from '@angular/common/http';
 import { map, Subscribable, Subscription } from 'rxjs';
@@ -11,11 +11,16 @@ import { AllQestionsViewComponent } from '../all-qestions-view/all-qestions-view
 import { QuestionSetService } from '../../tester/services/question-set.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { ImportQuestionSetViewComponent } from "../import-question-set-view/import-question-set-view.component";
+import { MarkdownModule, MarkdownService, provideMarkdown } from 'ngx-markdown';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'app-main-view',
     standalone: true,
-    imports: [CommonModule, RouterLink, ImportQuestionSetViewComponent],
+    providers: [
+      provideMarkdown(),
+    ],
+    imports: [CommonModule, RouterLink, ImportQuestionSetViewComponent, MarkdownModule, MatIconModule],
     templateUrl: './main-view.component.html',
     styleUrl: './main-view.component.css'
 })

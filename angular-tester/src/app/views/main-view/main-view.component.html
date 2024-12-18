@@ -1,8 +1,8 @@
 
 <section>
-    <h3>All qustion sets:</h3>
+    <h3>All sessions sets:</h3>
     <table style="width: 100%;">
-        <tr *ngFor="let test of tests" [routerLink]="'/learning/'+test" style="cursor: pointer;">
+        <!-- <tr *ngFor="let test of tests" [routerLink]="'/learning/'+test" style="cursor: pointer;">
             <td style="text-align: left;">
                 <span style="user-select: none;">
                     📝 
@@ -17,6 +17,28 @@
                     🗑️
                 </span>
             </td>
+        </tr> -->
+    </table>
+    <br>
+    <h3>All qustion sets ({{tests.length}}):</h3>
+    <table style="width: 100%;">
+        <tr *ngFor="let test of tests; let c = count">
+            <td class="centerRow">
+                    <mat-icon class="card" [routerLink]="'/learning/'+test" style="cursor: pointer; margin: 0 10px;">
+                        quiz
+                    </mat-icon>
+                    <div [routerLink]="'/learning/'+test" style="cursor: pointer; text-align: left; flex-grow: 1;">
+                        {{test}}
+                    </div>
+                    <div class="centerRow" style="justify-content: space-between; width: 100px;">
+                        <mat-icon [routerLink]="'/tests/'+test" class="clickableIcon button">
+                            search
+                        </mat-icon>
+                        <mat-icon (click)="questionSetService.deleteQuestionSet(test)" class="clickableIcon button toDelete">
+                            delete
+                        </mat-icon>
+                    </div>
+            </td>
         </tr>
     </table>
     <br>
@@ -24,12 +46,8 @@
 </section>
 
 <section>
-    <pre>
-<code class="language-javascript">
-def greet():
-    console.log('Hello, world!');
-</code>
-    </pre>
+    <pre><code class="language-javascript">def greet():
+    console.log('Hello, world!');</code></pre>
 </section>
 
 <!-- <section>

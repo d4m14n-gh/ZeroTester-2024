@@ -4,7 +4,7 @@ details{
 
 .button{
     opacity: 0%;
-    transition: opacity 250ms ease;
+    transition: all 250ms ease;
 }
 tr:hover .button{
     opacity: 60%;
@@ -14,12 +14,11 @@ tr:hover .button{
     cursor: pointer;
 }
 
-section {
-    margin: 0 15px;
-    margin-bottom: 15px;
-    /* border-radius: 20px 20px 0 0;
-    height: 100%; */
+.toDelete:hover {
+    color: rgb(239, 83, 80);
 }
 
-
+.card {
+    color: rgb(230, 195, 132);
+}
 

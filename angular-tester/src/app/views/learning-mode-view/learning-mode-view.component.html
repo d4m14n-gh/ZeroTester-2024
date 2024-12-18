@@ -8,7 +8,7 @@
     <hr>
     <input *ngIf="!tester.getIsTestEnded()&&!tester.getIsCurrentQuestionSubmited()" type="button" value="Submit" (click)="tester.submit()">
     <input *ngIf="!tester.getIsTestEnded()&&tester.getIsCurrentQuestionSubmited()" type="button" value="Go Next" (click)="tester.goToNextQuestion()">
-    <input *ngIf="tester.getIsTestEnded()" type="button" value="End Test" (click)="tester.submit()">
+    <input *ngIf="tester.getIsTestEnded()" type="button" value="End Test" (click)="finishLearning()">
     <!-- <input *ngIf="!tester.questionEnded()&&tester.answeredQestions==tester.currentQestion+1" type="button" value="Go Next" (click)="tester.submitAnswers()">
     <input *ngIf="!tester.questionEnded()&&tester.answeredQestions==tester.currentQestion" disabled type="button" value="Go Next" (click)="tester.submitAnswers()">
     <input *ngIf="tester.questionEnded()" type="button" value="Repeat all" (click)="tester.restart()">

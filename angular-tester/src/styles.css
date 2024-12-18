@@ -13,6 +13,7 @@
     --primary-color-light-raw: rgb(46, 114, 201);
     --primary-color-light-raw: 16, 16, 16;
     --primary-color-light-raw: 46, 114, 201;
+    --primary-color-light-raw: 42, 118, 144;
     
     
     --primary-color-light: rgb(var(--primary-color-light-raw));
@@ -20,7 +21,7 @@
 }
 body {
     background: radial-gradient(ellipse farthest-corner at center, #00000025, #16181925);
-    color: silver;
+    color: rgb(220, 215, 186);
     background-color: #1e1e27f1;
     background-color: #161819;
     /* background-color: rgb(96, 87, 58);
@@ -61,6 +62,7 @@ body {
 }
 
 header, footer {
+    padding-left: 20px;
     background: linear-gradient(to left, rgba(var(--primary-color-light-raw), 0.25), var(--bg-color));
     backdrop-filter: blur(var(--blur));
     user-select: none;
@@ -145,7 +147,9 @@ label, form span {
 }
 
 table {
+    background-color: rgba(0, 0, 0, 0.125);
     overflow: hidden;
+    /* padding: 10px; */
     border-radius: 10px;
     border-spacing: 0;
 }
@@ -154,16 +158,14 @@ thead {
     background: linear-gradient(to left, var(--primary-color), #0b0d0f3a 50%);
 }
 td, th {
-    padding: 10px;
+    padding: 5px 10px;
     text-align: center;
 }
 /* tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.1);
 } */
-tr {
-    background-color: rgba(0, 0, 0, 0.125);
-}
-tr:hover {
+td:hover {
+    border-radius: 10px;
     background-color: var(--bg-color);
 }
 
@@ -237,5 +239,24 @@ br {
     }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.clickableIcon {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 999px;
+    height: fit-content !important;
+    width: fit-content !important;
+}
+.clickableIcon:hover {
+    background-color: rgba(255, 255, 255, 0.175);
+    cursor: pointer;
+}
+.clickableIcon:active {
+    color: rgb(230, 195, 132);
+    color: rgb(122, 168, 141);
+    color: var(--primary-color-light);
+}
+.centerRow {
+    display: flex; 
+    align-items: center;
+}
