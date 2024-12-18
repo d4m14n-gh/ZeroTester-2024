@@ -6,20 +6,49 @@
     </legend>
     <app-question-view [qi]="tester.getCurrentQuestionNr()" [question]="tester.getCurrentQuestion()"></app-question-view>
     <hr>
-    <input *ngIf="!tester.getIsTestEnded()&&!tester.getIsCurrentQuestionSubmited()" type="button" value="Submit" (click)="tester.submit()">
-    <input *ngIf="!tester.getIsTestEnded()&&tester.getIsCurrentQuestionSubmited()" type="button" value="Go Next" (click)="tester.goToNextQuestion()">
-    <input *ngIf="tester.getIsTestEnded()" type="button" value="End Test" (click)="finishLearning()">
-    <!-- <input *ngIf="!tester.questionEnded()&&tester.answeredQestions==tester.currentQestion+1" type="button" value="Go Next" (click)="tester.submitAnswers()">
-    <input *ngIf="!tester.questionEnded()&&tester.answeredQestions==tester.currentQestion" disabled type="button" value="Go Next" (click)="tester.submitAnswers()">
-    <input *ngIf="tester.questionEnded()" type="button" value="Repeat all" (click)="tester.restart()">
-    <input *ngIf="tester.questionEnded()&&tester.result!=tester.getQuestionCount()" type="button" value="Repeat wrong" (click)="tester.reduce()"> -->
-    
-    <span style="user-select: none;">
-        Result: {{tester.getResult()}}/{{tester.getUserAnswersCnt()}} {{tester.getPercent()}}%
-    </span>
-    <span>
-        <!-- Left: {{tester.getQuestionCount()-tester.answeredQestions}} -->
-    </span>
+    <div class="centerRow" style="justify-content: space-between; user-select: none;">
+
+        <input *ngIf="!tester.getIsTestEnded()&&!tester.getIsCurrentQuestionSubmited()" type="button" value="Submit" (click)="tester.submit()">
+        <input *ngIf="!tester.getIsTestEnded()&&tester.getIsCurrentQuestionSubmited()" type="button" value="Go Next" (click)="tester.goToNextQuestion()">
+        <input *ngIf="tester.getIsTestEnded()" type="button" value="End Test" (click)="finishLearning()">
+        <!-- <input *ngIf="!tester.questionEnded()&&tester.answeredQestions==tester.currentQestion+1" type="button" value="Go Next" (click)="tester.submitAnswers()">
+        <input *ngIf="!tester.questionEnded()&&tester.answeredQestions==tester.currentQestion" disabled type="button" value="Go Next" (click)="tester.submitAnswers()">
+        <input *ngIf="tester.questionEnded()" type="button" value="Repeat all" (click)="tester.restart()">
+        <input *ngIf="tester.questionEnded()&&tester.result!=tester.getQuestionCount()" type="button" value="Repeat wrong" (click)="tester.reduce()"> -->
+        
+        <div class="centerRow">
+            <mat-icon>
+                scoreboard
+            </mat-icon>
+            &nbsp;
+            Points:
+            {{tester.getResult()}}/{{tester.getUserAnswersCnt()}} 
+            &nbsp;
+            {{tester.getPercent()}}
+            <mat-icon>
+                percent
+            </mat-icon>
+        </div>
+        <div class="centerRow">
+        </div>
+        <div class="centerRow">
+            <mat-icon>
+                pending
+                <!-- @if (tester.getQuestionCount()-tester.getUserAnswersCnt()<1) {
+                    done_all
+                }
+                @else if (tester.getQuestionCount()-tester.getUserAnswersCnt()<10) {
+                    filter_{{tester.getQuestionCount()-tester.getUserAnswersCnt()}}
+                }
+                @else {
+                    filter_9_plus
+                } -->
+            </mat-icon>
+            &nbsp;
+            Left: {{tester.getQuestionCount()-tester.getUserAnswersCnt()}}
+
+        </div>
+    </div>
 </fieldset>
 
 

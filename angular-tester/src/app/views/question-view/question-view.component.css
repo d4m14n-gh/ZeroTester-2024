@@ -14,7 +14,10 @@
     background-color: rgba(var(--primary-color-light-raw), var(--bg-answer-opacity))
 }
 
-
+.hoverable {
+    background-color: var(--bg-color) !important;
+    background-color: red !important;
+}
 /* .correctUncheckedAnswer::after{
     content: "🆗";
     position: absolute;

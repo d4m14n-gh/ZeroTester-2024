@@ -43,11 +43,17 @@ export class TesterService{
   getResult(): number {
     return this.tester!.getResult();
   }
+  getResults(): number[] {
+    return this.tester!.getResults();
+  }
   getUserAnswersCnt(): number {
       return this.tester!.getUserAnswersCnt();
   }
   getQuestions(): Question[] {
     return this.tester!.getQuestions();
+  }
+  getIsUserAnswered(questionNr: number): boolean {
+    return this.tester!.getUserAnswers()[questionNr].size>0;
   }
   getPercent(): number {
     if (this.getUserAnswersCnt()==0)
@@ -118,17 +124,16 @@ export class TesterService{
     );
   }
 
-  // restart(): void {
-  //   this.userAnswers = new Array(this.getQuestionCount()).fill(undefined);
-  //   this.currentQestion=0;
-  //   this.answeredQestions=0;
-  //   this.result=0;
-  // }
+  restart(): void {
+    let questions = this.tester!.getQuestions();
+    this.tester=new Tester(questions);
+  }
 
-  // reduce(): void {
-  //   this.questions = this.questions.filter((q, i) => !q.correctAnswers.includes(this.userAnswers[i][0]));
-  //   this.restart();
-  // }
+  reduce(): void {
+    let questions = this.tester!.getQuestions().filter((q, i) => this.tester!.getResults()[i]!==1);
+    if(questions.length)
+      this.tester=new Tester(questions);
+  }
 
 
 

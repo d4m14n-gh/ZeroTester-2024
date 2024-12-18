@@ -39,7 +39,9 @@ export class MainViewComponent implements OnDestroy{
   async loadTests(): Promise<void> {
     this.tests = await this.questionSetService.getAllQuestionSetNames();
   }
-
+  lg(){
+    console.log("xd");
+  }
   // colorChange(event: Event) {
   //   this.color = (event.target as HTMLInputElement).value as string;
   //   document.documentElement.style.setProperty('--primary-color-light-raw', this.hexToRgb(this.color));

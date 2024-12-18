@@ -5,34 +5,84 @@
                 leaderboard
             </mat-icon>
             &nbsp;
-            <h3>Quiz result:</h3>
+            <h3>Quiz results:</h3>
         </div>
-        {{tester.getResult()}}/{{tester.getUserAnswersCnt()}} {{tester.getPercent()}}%
+        <hr>
         <br>
-        <br>
-        <div class="centerRow">
-            @for (item of [1, 2, 3, 4 , 5]; track $index) {
-                <!-- {{$index}}: 
-                &nbsp; -->
-                <mat-icon style="color: rgb(152, 173, 77);">
-                    done_outline
+        <div style="margin-left: 20px; overflow: hidden;">
+
+            <div class="centerRow">
+                <mat-icon>
+                    scoreboard
                 </mat-icon>
                 &nbsp;
-                <mat-icon style="color: rgb(239, 83, 80);">
-                    disabled_by_default
+                Points:
+                &nbsp;
+                {{tester.getResult()}}/{{tester.getQuestionCount()}} 
+                &nbsp;
+                {{tester.getPercent()}}
+                <mat-icon>
+                    percent
+                </mat-icon>
+            </div>
+            <br>
+            <br>
+            <div class="centerRow">
+                <mat-icon>
+                    view_timeline
                 </mat-icon>
                 &nbsp;
-            }
+                Quiz answer result timeline:
+            </div>
+            <br>
+            <div class="centerRow tll" style="margin-left: 20px;">
+                @for (points of tester.getResults(); track $index) {
+                    <div class="centerRow">
+                        <span style="opacity: 50%;">
+                            {{$index}}: 
+                        </span>
+                            &nbsp;
+                        @if (points==1) {
+                            <mat-icon style="color: rgb(152, 173, 77);" class="tli">
+                                done_outline
+                            </mat-icon>
+                        }
+                        @else if (points==0&&!tester.getIsUserAnswered($index)) {
+                            <mat-icon style="color: rgb(144, 164, 174);" class="tli">
+                                remove_circle
+                            </mat-icon>
+                        }
+                        @else if (points==0) {
+                            <mat-icon style="color: rgb(239, 83, 80);" class="tli">
+                                disabled_by_default
+                            </mat-icon>
+                        }
+                        @else {
+                            <mat-icon style="color: rgb(230, 195, 132);" class="tli">
+                                rule
+                            </mat-icon>
+                        }
+                        <span *ngIf="$index<$count-1">,
+                            &nbsp;
+                            &nbsp;
+                        </span>
+                    </div>
+                }
+            </div>
         </div>
         <br>
-    }
-    @else {
-        <div class="centerRow">
-            <mat-icon>
-                warning
-            </mat-icon>
-            &nbsp;
-            <h3>No learning session found.</h3>
-        </div>
-    }
+        <hr>
+        <br>
+        <input type="button" value="Repeat All" (click)="restart()">
+        <input *ngIf="tester.getResult()<tester.getQuestionCount()" type="button" value="Repeat Wrong" (click)="reduce()">
+        }
+        @else {
+            <div class="centerRow">
+                <mat-icon>
+                    warning
+                </mat-icon>
+                &nbsp;
+                <h3>No learning session found.</h3>
+            </div>
+        }
 </section>

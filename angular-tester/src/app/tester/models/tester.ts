@@ -5,6 +5,7 @@ export class Tester {
     private currentQuestionNr: number = 0;
     private questions: Question[];
     private userAnswers: Set<number>[]; //todo polymorphical answers
+    private userResults: number[];
     private isTestEnded: boolean = false;
     private isCurrentQuestionSubmited: boolean = false;
     private userAnswersCnt: number = 0;
@@ -15,6 +16,7 @@ export class Tester {
             throw new Error("Lista jest pusta");
         this.questions = questions;
         this.userAnswers = new Array(this.questions.length).fill(null).map(() => new Set());;
+        this.userResults = new Array(this.questions.length).fill(0);
         console.log("Create tester");
     }
 
@@ -35,6 +37,9 @@ export class Tester {
     getResult(): number {
         return this.userResult;
     }
+    getResults(): number[] {
+        return this.userResults;
+    }
     getUserAnswersCnt(): number {
         return this.userAnswersCnt;
     }
@@ -46,6 +51,9 @@ export class Tester {
     }
     getIsTestEnded(): boolean{
         return this.currentQuestionNr==this.getQuestionsCount()-1&&this.isCurrentQuestionSubmited;
+    }
+    getUserAnswers(): Set<number>[]{
+        return this.userAnswers;
     }
 
 
@@ -79,7 +87,9 @@ export class Tester {
     submitCurrentQuestion(): void {
         if (this.isCurrentQuestionSubmited)
             return;
-        this.userResult += this.checkCurrentQuestionAnswers();
+        const result = this.checkCurrentQuestionAnswers()
+        this.userResult += result;
+        this.userResults[this.currentQuestionNr] = result;
         this.userAnswersCnt ++;
         this.isCurrentQuestionSubmited = true;
     }

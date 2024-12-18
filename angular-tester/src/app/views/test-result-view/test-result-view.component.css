@@ -1,0 +1,14 @@
+.tli {
+    width: fit-content !important;
+    height: fit-content !important;
+}
+
+.tll {
+    user-select: none; 
+    white-space: nowrap; 
+    background-color: rgba(0, 0, 0, 0.125);  
+    max-width: fit-content; 
+    border-radius: 10px; 
+    padding: 10px;
+    overflow: auto; 
+}

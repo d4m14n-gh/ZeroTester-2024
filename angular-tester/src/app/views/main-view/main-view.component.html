@@ -1,43 +1,31 @@
 
 <section>
-    <h3>All sessions sets:</h3>
+    <!-- <h3>All sessions sets:</h3>
     <table style="width: 100%;">
-        <!-- <tr *ngFor="let test of tests" [routerLink]="'/learning/'+test" style="cursor: pointer;">
-            <td style="text-align: left;">
-                <span style="user-select: none;">
-                    📝 
-                </span>
-                {{test}}
-            </td>
-            <td style="user-select: none; width: 100px;">
-                <span [routerLink]="'/tests/'+test" class="button">
-                    🔍
-                </span>
-                <span (click)="questionSetService.deleteQuestionSet(test)"class="button">
-                    🗑️
-                </span>
-            </td>
-        </tr> -->
+        
     </table>
-    <br>
+    <br> -->
     <h3>All qustion sets ({{tests.length}}):</h3>
     <table style="width: 100%;">
         <tr *ngFor="let test of tests; let c = count">
+            <!-- <td class="centerRow" [routerLink]="'/learning/'+test"> -->
             <td class="centerRow">
-                    <mat-icon class="card" [routerLink]="'/learning/'+test" style="cursor: pointer; margin: 0 10px;">
+                <div class="centerRow hoverable"  style="text-align: left; flex-grow: 1;" [routerLink]="'/learning/'+test">
+                    <mat-icon class="card"  style="margin: 0 10px;">
                         quiz
                     </mat-icon>
-                    <div [routerLink]="'/learning/'+test" style="cursor: pointer; text-align: left; flex-grow: 1;">
+                    <div>
                         {{test}}
                     </div>
-                    <div class="centerRow" style="justify-content: space-between; width: 100px;">
-                        <mat-icon [routerLink]="'/tests/'+test" class="clickableIcon button">
-                            search
-                        </mat-icon>
-                        <mat-icon (click)="questionSetService.deleteQuestionSet(test)" class="clickableIcon button toDelete">
-                            delete
-                        </mat-icon>
-                    </div>
+                </div>
+                <div class="centerRow" style="justify-content: space-between; width: 100px;">
+                    <mat-icon [routerLink]="'/tests/'+test" class="clickableIcon button">
+                        search
+                    </mat-icon>
+                    <mat-icon (click)="questionSetService.deleteQuestionSet(test)" class="clickableIcon button toDelete">
+                        delete_forever
+                    </mat-icon>
+                </div>
             </td>
         </tr>
     </table>

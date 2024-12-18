@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LearningModeViewComponent } from './learning-mode-view.component';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('LearningModeViewComponent', () => {
   let component: LearningModeViewComponent;
