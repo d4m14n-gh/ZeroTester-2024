@@ -1,42 +1,34 @@
 
 <section>
-    <!-- <h3>All sessions sets:</h3>
-    <table style="width: 100%;">
-        
-    </table>
-    <br> -->
     <h3>All qustion sets ({{tests.length}}):</h3>
-    <table style="width: 100%;">
-        <tr *ngFor="let test of tests; let c = count">
-            <!-- <td class="centerRow" [routerLink]="'/learning/'+test"> -->
-            <td class="centerRow">
-                <div class="centerRow hoverable"  style="text-align: left; flex-grow: 1;" [routerLink]="'/learning/'+test">
+    <div class="table">
+       @for (test of tests; track $index) {
+            <div class="centerRow row">
+                <div class="centerRow hoverable"  style="flex-grow: 1;" (click)="startLearningMode(test)">
                     <mat-icon class="card"  style="margin: 0 10px;">
                         quiz
                     </mat-icon>
-                    <div>
-                        {{test}}
-                    </div>
+                    {{test}}
                 </div>
                 <div class="centerRow" style="justify-content: space-between; width: 100px;">
-                    <mat-icon [routerLink]="'/tests/'+test" class="clickableIcon button">
+                    <mat-icon [routerLink]="'/tests/'+test" class="clickableIcon button toSearch">
                         search
                     </mat-icon>
                     <mat-icon (click)="questionSetService.deleteQuestionSet(test)" class="clickableIcon button toDelete">
                         delete_forever
                     </mat-icon>
                 </div>
-            </td>
-        </tr>
-    </table>
+            </div>
+        }
+    </div>
     <br>
     <app-import-question-set-view></app-import-question-set-view> 
 </section>
 
-<section>
+<!-- <section>
     <pre><code class="language-javascript">def greet():
     console.log('Hello, world!');</code></pre>
-</section>
+</section> -->
 
 <!-- <section>
     <input type="color" [value]="color" (change)="colorChange($event)">
@@ -66,4 +58,25 @@
     <span *ngIf="tester.submited">
         {{tester.result}}/{{tester.getQuestionCount()}}
     </span>
+</section> -->
+
+<!-- <section>
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Correct</th>
+        </tr>
+       <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+       </tr>
+    </table>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
 </section> -->

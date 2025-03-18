@@ -4,22 +4,21 @@ details{
 
 .button{
     opacity: 0%;
-    transition: all 50ms ease;
     transition: color 500ms ease;
-    /* transition: opacity 200ms ease; */
     cursor: pointer;
 }
-tr:hover .button{
+.row:hover .button{
     opacity: 60%;
 }
 .button:hover{
     opacity: 90% !important;
-    /* transition: none; */
 }
 
 .toDelete:hover {
-    content: "search";
     color: rgb(239, 83, 80);
+}
+.toSearch:hover {
+    color: var(--primary-color-light);
 }
 
 .card {
@@ -29,13 +28,23 @@ tr:hover .button{
 .hoverable {
     margin-right: 20px;
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 995px;
     cursor: pointer;
-    transition: all 50ms ease;
 }
-tr:hover .hoverable {
+.row:hover .hoverable {
     background-color: var(--bg-color);
 }
 .hoverable:hover {
     background-color: rgba(255, 255, 255, 0.1) !important;
 }
+
+
+.row {
+    margin: 5px;
+}
+.table {
+    padding: 10px;
+    border-radius: 32px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+

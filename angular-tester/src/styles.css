@@ -1,6 +1,8 @@
 :root{
     --bg-color: rgb(22, 24, 25, 0.25);
     --bg-color: rgba(255, 255, 255, 0.05);
+    --bg-color: rgba(0, 0, 0, 0.25);
+    --bg-color: rgb(33, 40, 48, 0.5);
     --blur: 5px;
     --borders: none;
     --borders: 1px solid rgba(255, 255, 255, 0.05);
@@ -24,6 +26,7 @@ body {
     color: rgb(220, 215, 186);
     background-color: #1e1e27f1;
     background-color: #161819;
+    background-color: #161819;
     /* background-color: rgb(96, 87, 58);
     /* font-family: "Helvetica Neue", Arial, sans-serif; */
     /* font-family: 'JetBrains Mono';
@@ -37,16 +40,19 @@ body {
 
 .background {
     position: fixed;
-    background-image: url(".\\assets\\go.png");
+    background-image: url(".\\assets\\gmach.jpg");
     background-image: url(".\\assets\\bg.jpg");
+    background-image: url(".\\assets\\go.png");
     background-image: url(".\\assets\\output2.png");
     width: 100%;
     height: 100%;
     opacity: 75%;
+    opacity: 15%;
+    opacity: 35%;
     top: 0;
     left: 0;
     background-position: center;
-    background-size: cover;
+    /* background-size: cover; */
     z-index:-999;
 }
 .video-background {
@@ -146,25 +152,6 @@ label, form span {
     opacity: 0.8;
 }
 
-table {
-    background-color: rgba(0, 0, 0, 0.125);
-    overflow: hidden;
-    padding: 10px 5px;
-    border-radius: 10px;
-    border-spacing: 0;
-}
-thead {
-    background-color: #0b0d0f3a;
-    background: linear-gradient(to left, var(--primary-color), #0b0d0f3a 50%);
-}
-td, th {
-    padding: 5px 10px;
-    text-align: center;
-}
-/* tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.1);
-} */
-
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -184,7 +171,7 @@ td, th {
     background: linear-gradient(to top, rgba(var(--primary-color-light-raw), 0.25), var(--bg-color));
 }
 
-tr:hover .icon {
+.icon {
     visibility: visible;
     opacity: 0.7;
 }
@@ -236,7 +223,7 @@ br {
 
 .clickableIcon {
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--bg-color);
     backdrop-filter: blur(5px);
     border-radius: 999px;
     height: fit-content !important;

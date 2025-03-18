@@ -28,7 +28,7 @@ export class Question{
     }
     static quetionsFromJson(jsonContent: string): Question[]{
         let jsonParsed = JSON.parse(jsonContent);
-        console.log(jsonParsed);
+        // console.log(jsonParsed);
         return jsonParsed["questions"].map(Question.fromJson);
     }
 }

@@ -103,36 +103,40 @@ export class TesterService{
     return "";
   }
 
-  loadQuestions(fileName: string): void {
-    this.http.get<any[]>('assets/tests/'+fileName+".json")
-    .pipe(map((data: any) => data.questions.map(Question.fromJson)))
-    .subscribe((questions: Question[]) => {
-      this.currentTest = fileName;
-      if (questions)
-        this.tester = new Tester(questions);
-      this.changeOrder();
-    });
-  }
+  // loadQuestions(fileName: string): void {
+  //   this.http.get<any[]>('assets/tests/'+fileName+".json")
+  //   .pipe(map((data: any) => data.questions.map(Question.fromJson)))
+  //   .subscribe((questions: Question[]) => {
+  //     this.currentTest = fileName;
+  //     if (questions)
+  //       this.tester = new Tester(questions);
+  //     this.changeOrder();
+  //   });
+  // }
   loadQuestions2(fileName: string): void {
     this.questionSetService.getQuestionSet(fileName).then(
       questions => {
         this.currentTest = fileName;
-        if (questions)
-          this.tester = new Tester(questions);
-        this.changeOrder();
+        this.initTester(questions);
       }
     );
   }
 
+  initTester(questions: Question[]): void {
+    if (questions&&questions.length){
+      this.tester = new Tester(questions);
+      this.changeOrder();
+    }
+  }
+
   restart(): void {
     let questions = this.tester!.getQuestions();
-    this.tester=new Tester(questions);
+    this.initTester(questions);
   }
 
   reduce(): void {
     let questions = this.tester!.getQuestions().filter((q, i) => this.tester!.getResults()[i]!==1);
-    if(questions.length)
-      this.tester=new Tester(questions);
+    this.initTester(questions);
   }
 
 

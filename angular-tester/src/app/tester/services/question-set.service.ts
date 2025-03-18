@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Question } from '../models/questions';
 import { waitForAsync } from '@angular/core/testing';
+import * as yaml from 'js-yaml';
 import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,28 +13,53 @@ export class QuestionSetService {
   private questionSetUpdateSubject = new Subject<void>();
   public questionSetUpdate$: Observable<void> = this.questionSetUpdateSubject.asObservable();
   
-  constructor() {
-    this.initializeDatabase();
+  constructor(private http: HttpClient) {
+    
+    this.initializeDatabase(true);
   }
   
+  private extractFile(content: string): Question[] {
+    let sp = "aui.yml".split('.');
+    if (sp[sp.length-1]=="yml"){
+      content = JSON.stringify(yaml.load(content as string), null, 2);
+    }
+    return Question.quetionsFromJson(content as string);
+  }
+
   private triggerQuestionSetUpdate(): void{
     this.questionSetUpdateSubject.next();
   }
   
-  private initializeDatabase(): Promise<void> {
+  private initializeDatabase(addExampleSet: boolean=false): Promise<void> {
     return new Promise((resolve, reject) => {
       const request = indexedDB.open('QuestionSetsDatabase', 1);
+      
+      let createTable = false;
 
       request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
         const db = request.result;
-        if (!db.objectStoreNames.contains('questionSets'))
+        if (!db.objectStoreNames.contains('questionSets')){
           db.createObjectStore('questionSets', { keyPath: 'name'});
+          createTable = true;
+        }
         this.db = request.result;
+        if(addExampleSet&&createTable){
+          this.http.get('assets/tests/aui-1.json', { responseType: 'text' })
+          .subscribe(data => {
+              let content = data;
+              if (content){
+                let questions = this.extractFile(content as string);
+                this.saveFileToIndexedDB("example", questions);
+              }
+            }, error => {
+              console.error('Error:', error);
+            });
+        }
         resolve();
       };
 
       request.onsuccess = () => {
-        this.db = request.result;
+        this.db = request.result; 
         resolve();
       };
 
@@ -40,6 +67,8 @@ export class QuestionSetService {
         console.error('Błąd otwierania bazy danych:', request.error);
         reject();
       };
+
+      
     });
   }
 

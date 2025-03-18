@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { TesterService } from '../../tester/services/tester.service';
 import { QuestionViewComponent } from "../question-view/question-view.component";
 import { LearningModeViewComponent } from "../learning-mode-view/learning-mode-view.component";
-import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterModule } from '@angular/router';
 import { AllQestionsViewComponent } from '../all-qestions-view/all-qestions-view.component';
 import { QuestionSetService } from '../../tester/services/question-set.service';
 import { FormsModule, NgModel } from '@angular/forms';
@@ -31,7 +31,7 @@ export class MainViewComponent implements OnDestroy{
   tests: string[] = [];
   subscription: Subscription;
   
-  constructor(private http: HttpClient, public questionSetService: QuestionSetService){
+  constructor(private http: HttpClient, private tester: TesterService, public questionSetService: QuestionSetService, private router: Router){
     this.subscription = this.questionSetService.questionSetUpdate$.subscribe(() => this.loadTests())
     this.loadTests();
   }
@@ -39,8 +39,10 @@ export class MainViewComponent implements OnDestroy{
   async loadTests(): Promise<void> {
     this.tests = await this.questionSetService.getAllQuestionSetNames();
   }
-  lg(){
-    console.log("xd");
+
+  startLearningMode(filename: string): void {
+    this.tester.loadQuestions2(filename);
+    this.router.navigate(['/learning', filename]);
   }
   // colorChange(event: Event) {
   //   this.color = (event.target as HTMLInputElement).value as string;

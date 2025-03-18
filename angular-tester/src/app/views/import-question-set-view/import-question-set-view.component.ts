@@ -24,19 +24,21 @@ export class ImportQuestionSetViewComponent {
     });
   }
 
+  extractFile(content: string): Question[] {
+    let sp = this.getFileName().split('.');
+    if (sp[sp.length-1]=="yml"){
+      content = JSON.stringify(yaml.load(content as string), null, 2);
+    }
+    return Question.quetionsFromJson(content as string);
+  }
+    
   onSubmit() {
-    const filename = this.importForm.value['qsname'];
-    const reader = new FileReader();
-    reader.onload = () => {
-      let content = reader.result;
-      if (content) {
-        let sp = this.getFileName().split('.');
-        if (sp[sp.length-1]=="yml"){
-          content = JSON.stringify(yaml.load(content as string), null, 2);
-          console.log(content as string);
-        }
-        this.questionSetService.saveFileToIndexedDB(filename, Question.quetionsFromJson(content as string));
-      }
+      const filename = this.importForm.value['qsname'];
+      const reader = new FileReader();
+      reader.onload = () => {
+        let content = reader.result;
+        if (content) 
+          this.questionSetService.saveFileToIndexedDB(filename, this.extractFile(content as string));
     };
     reader.readAsText(this.file!);
     console.log('Formularz przesłany!', this.importForm.value);
